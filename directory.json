@@ -1,28 +1,62 @@
 {
-	"name": "Kurius",
-	"files": [
-		{ "name": "Documents", "files": [
-			{ "name": "Code", "files": [
-				{ "name": "Homework", "files": [
-					{ "name": "Math", "files": [
-						{ "file": "BigNumber.txt", "cache": "BigNumber.txt", "invulnerable": true },
-						{ "file": "RecursiveAlgo.txt", "cache": "RecursiveAlgo.txt", "invulnerable": true }
-					]},
-					{ "name": "Web", "files": [
-						{ "file": "homework.html", "cache": "homework.html", "invulnerable": true }
-					]}
-				]},
-				{ "name": "Work", "files": [
-					
-				]}
-			]}
-		]},
-		{ "name": "Pictures", "files": [
-			{ "file": "dogpic.png", "cache": "dogpic.png", "invulnerable": true },
-			{ "file": "catpic.png", "cache": "catpic.png", "invulnerable": true },
-			{ "file": "logo.png", "cache": "logo.png", "invulnerable": true },
-			{ "file": "password.png", "cache": "password.png", "invulnerable": true }
-		]},
-		{ "name": "Downloads", "files": [] }
-	]
+	"Kurius": {
+		"type": "folder",
+		"invulnerable": true,
+		"files": {
+			"Documents": {
+				"type": "folder",
+				"invulnerable": true,
+				"files": {
+					"Code": {
+						"type": "folder",
+						"invulnerable": true,
+						"files": {
+							"School": {
+								"type": "folder",
+								"invulnerable": true,
+								"files": {
+									"Math": {
+										"type": "folder",
+										"invulnerable": true,
+										"files": {
+											"BigNumber.txt": { "type": "file", "cache": "BigNumber.txt", "invulnerable": true},
+											"RecursiveAlgo.txt": { "type": "file", "cache": "RecursiveAlgo.txt", "invulnerable": true}
+										}
+									},
+									"Web": {
+										"type": "folder",
+										"invulnerable": true,
+										"files": {
+											"homework.html": { "type": "file", "cache": "homework.html", "invulnerable": true}
+										}
+									}
+								}
+							},
+							"Work": {
+								"type": "folder",
+								"invulnerable": true,
+								"files": {
+				
+								}
+							}
+						}
+					}
+				}
+			},
+			"Pictures": {
+				"type": "folder",
+				"invulnerable": true,
+				"files": {
+					"dogpic.png": { "type": "file", "cache": "dogpic.png", "invulnerable": true},
+					"catpic.png": { "type": "file", "cache": "catpic.png", "invulnerable": true },
+					"logo.png": { "type": "file", "cache": "logo.png", "invulnerable": true }
+				}
+			},
+			"Downloads": {
+				"type": "folder",
+				"invulnerable": true,
+				"files": {}
+			}
+		}
+	}
 }
