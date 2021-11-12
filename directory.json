@@ -1,0 +1,28 @@
+{
+	"name": "Kurius",
+	"files": [
+		{ "name": "Documents", "files": [
+			{ "name": "Code", "files": [
+				{ "name": "Homework", "files": [
+					{ "name": "Math", "files": [
+						{ "file": "BigNumber.txt", "cache": "BigNumber.txt", "invulnerable": true },
+						{ "file": "RecursiveAlgo.txt", "cache": "RecursiveAlgo.txt", "invulnerable": true }
+					]},
+					{ "name": "Web", "files": [
+						{ "file": "homework.html", "cache": "homework.html", "invulnerable": true }
+					]}
+				]},
+				{ "name": "Work", "files": [
+					
+				]}
+			]}
+		]},
+		{ "name": "Pictures", "files": [
+			{ "file": "dogpic.png", "cache": "dogpic.png", "invulnerable": true },
+			{ "file": "catpic.png", "cache": "catpic.png", "invulnerable": true },
+			{ "file": "logo.png", "cache": "logo.png", "invulnerable": true },
+			{ "file": "password.png", "cache": "password.png", "invulnerable": true }
+		]},
+		{ "name": "Downloads", "files": [] }
+	]
+}
