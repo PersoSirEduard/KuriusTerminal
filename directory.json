@@ -1,5 +1,5 @@
 {
-	"Kurius": {
+	"root": {
 		"type": "folder",
 		"invulnerable": true,
 		"files": {
