@@ -6,6 +6,7 @@ from tree import Tree
 from folder import *
 from file import *
 from colors import COLORS
+from io import BytesIO
 
 # Bot permissions
 intents = discord.Intents.default()
@@ -27,14 +28,26 @@ async def on_message(message):
 	
 	if message.author == client.user: return # Ignore self messages
 	if message.channel.id != focus_channel: return # Only accept messages in the terminal channel
+	if message.author.bot: return # Ignore bots to avoid spam
 
-	# # Split the message into words
-	args = shlex.split(message.content)
+	for command in message.content.split("&&"):
+		if command == "": continue
+		await handleCommand(message, command)
+	
 
-	if args[0].startswith('!'): return # Ignore commands
+async def handleCommand(message, command):
+
+	args = []
+	try:
+		args = shlex.split(command) # Split the message into words
+	except ValueError as e:
+		print(e)
+
+	if args == []: return None # Ignore empty messages/images etc.
+
+	if args[0].startswith('!'): return None # Ignore commands
 	
 	async with message.channel.typing(): # Show that the bot is computing
-
 		# Help message
 		if args[0] == "help":
 
@@ -48,33 +61,37 @@ async def on_message(message):
 			helpTxt += "Please report any issue to a Community Manager."
 
 			await echo(message.channel, f"Here's a list of most commands: \n{helpTxt}")
-			return
+			return helpTxt
 
 		# Echo to output
 		if args[0] == "echo":
-			await echo(message.channel, f"{' '.join(args[1:])}")
-			return
+			txt = ' '.join(args[1:])
+			await echo(message.channel, txt)
+			return txt
 
 		# Echo the current directory
 		if args[0] == "pwd":
 			await echo(message.channel, treeDir.getCurrentDir())
-			return
+			return treeDir.getCurrentDir()
 
 		# List current directory files
 		if args[0] == "ls": # Only works if the folder contains folders
 			try:
+				
 				folder = treeDir.getDirectory(treeDir.getCurrentDir())
 
-				# Previw sub folders if required
-				if "-s" in args:
-					await echo(message.channel, f"Found {folder.count} file(s).\n" + treeDir.getTreePath(folder, 3, 0, True))
+				# Preview sub folders if required
+				if "-t" in args:
+					await echo(message.channel, f"Found {folder.count} file(s).\n" + treeDir.getTreePath(folder, 3, 0, True, "-f" in args))
 				else:
-					await echo(message.channel, f"Found {folder.count} file(s).\n" + treeDir.getTreePath(folder, 1, 0, False))
+					await echo(message.channel, f"Found {folder.count} file(s).\n" + treeDir.getTreePath(folder, 1, 0, False, "-f" in args))
 				
+				return [child.getName() for child in folder.children]
+
 			except Exception as e:
 				print(e)
 				await echo(message.channel, "Error: Could not reach the contents of the directory.", COLORS["red"])
-			return
+			return None
 
 		# Change directory
 
@@ -82,21 +99,13 @@ async def on_message(message):
 			try:
 				if (len(args) > 1):
 					newPath = args[1]
-
-					if newPath.startswith(".."):
-						newPath = str(treeDir.getDirectory(treeDir.getCurrentDir())) + newPath[2:]
-					elif newPath.startswith('~'):
-						newPath = '/' + newPath[1:]
-					elif newPath.startswith('.'):
-						newPath = treeDir.getCurrentDir() + '/' + newPath[1:]
-					else:
-						newPath = treeDir.getCurrentDir() + "/" + newPath
-
-					newDir = treeDir.getDirectory(newPath)
+					
+					newDir = treeDir.getDirectory(newPath, True)
 
 					if newDir != None:
-						treeDir.setCurrentDir(newPath)
-						await echo(message.channel, f"Changed directory to {newPath}.", COLORS["green"])
+						treeDir.setCurrentDir(newDir.getFullPath())
+						await echo(message.channel, f"Changed directory to {newDir}.", COLORS["green"])
+						return newDir
 					else:
 						await echo(message.channel, f"Error: Directory not found.", COLORS["red"])
 						
@@ -106,9 +115,51 @@ async def on_message(message):
 			except Exception as e:
 				print(e)
 				await echo(message.channel, "Error: Could not reach the contents of the directory.", COLORS["red"])
-			return
+			return None
+
+		# Output the contents of a file
+		if args[0] == "cat":
+			try:
+				if (len(args) > 1):
+					file = getFile(treeDir, args[1], True)
+
+					if file != None:
+						contents = file.read()
+						
+						if contents != None:
+							await echo(message.channel, contents)
+							return contents
+						else:
+							await echo(message.channel, "Error: Could not read the file.", COLORS["red"])
+					else:
+						await echo(message.channel, f"Error: File not found.", COLORS["red"])
+
+				else:
+					await echo(message.channel, f"Error: No file specified.", COLORS["red"])
+			except Exception as e:
+				print(e)
+				await echo(message.channel, "Error: Could not reach the contents of the file.", COLORS["red"])
+			return None
+
+		# Download a file
+		if args[0] == "get":
+			try:
+				if (len(args) > 1):
+					file = getFile(treeDir, args[1], True)
+
+					if file != None:
+						await message.channel.send(file=discord.File(BytesIO(file.read(mode="rb", limit=False)), filename=file.getName()))
+					else:
+						await echo(message.channel, f"Error: File not found.", COLORS["red"])
+				else:
+					await echo(message.channel, f"Error: No file specified.", COLORS["red"])
+			except Exception as e:
+				print(e)
+				await echo(message.channel, "Error: Could not reach the contents of the file.", COLORS["red"])
+			return None
 		
 		await echo(message.channel, "Unknown command. Use 'help' for all available commands.", COLORS["red"])
+		return None
 
 if __name__ == "__main__":
 	client.run(TOKEN)

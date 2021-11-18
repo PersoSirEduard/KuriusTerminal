@@ -48,7 +48,7 @@ class Tree:
                     contents = self._loadExplore(path + name + "/", body.get("files"))
                     
                     # Create a new folder object
-                    newFolder = Folder(self, name, path, attribs)
+                    newFolder = Folder(name, path, attribs)
                     
                     # Add its sub folders and files
                     for content in contents:
@@ -56,7 +56,7 @@ class Tree:
 
                     localContent.append(newFolder)
 
-                elif body.get("type") == "file":
+                else:
                     localContent.append(File(name, path, attribs))
 
         return localContent
@@ -67,16 +67,33 @@ class Tree:
     def setCurrentDir(self, path):
         self.currentDir = path
 
-    def getDirectory(self, path):
+    def getParentPath(self):
+        return "/"
+
+    def getFullPath(self):
+        return "/"
+
+    def getDirectory(self, path, relativePath = False):
         if str(path).strip() == "/":
             return self
         else:
-            return getDirectory(self, path)
+            return getDirectory(self, path, relativePath)
+    
+    # Function that gets the file/folder name from its path (i.e. the last element of the path) as a string
+    def getPathName(self, path):
+        if str(path) != "/":
+            return str(path).split("/")[-1]
+        return "/"
 
-    def getTreePath(self, path, maxDepth = 2, _currDepth = 0, showHidden = False):
+
+    """ Note (Eduard): Code needs to be worked on because it is messy and has impractical statements/methods """
+    def getTreePath(self, path, maxDepth = 2, _currDepth = 0, showHidden = False, showFullPath = False):
 
         curr = path
-        graph = str(curr)
+        if showFullPath:
+            graph = str(curr)
+        else:
+            graph = self.getPathName(curr)
         
         keys = list(curr.children.keys())
 
@@ -98,8 +115,11 @@ class Tree:
                 return graph
             
             if hasattr(child, 'children') and child.children != None and len(child.children) > 0:
-                graph += self.getTreePath(child, maxDepth, _currDepth + 1, showHidden)
+                graph += self.getTreePath(child, maxDepth, _currDepth + 1, showHidden, showFullPath)
             else:
-                graph += child.name
+                if showFullPath:
+                    graph += str(self.getDirectory(child))
+                else:
+                    graph += child.getName().replace("/", "")
         
         return graph
