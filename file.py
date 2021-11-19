@@ -1,6 +1,7 @@
 from folder import getDirectory
 from storage import StorageEntity
 from utils import formatPath
+from io import BytesIO
 
 class File(StorageEntity):
 
@@ -21,7 +22,10 @@ class File(StorageEntity):
         
         # Read from data
         if self.data != "":
-            return self.data
+            if mode == "rb":
+                return BytesIO(self.data)
+            else:
+                return self.data
         # Read from cache
         elif hasattr(self, "cache"):
             try:

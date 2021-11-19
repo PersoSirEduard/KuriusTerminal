@@ -221,7 +221,8 @@ async def handleCommand(message, command):
 
 			except Exception as e:
 				print(e)
-				await echo(message.channel, "Error: Could not lock. The password may be invalid.", COLORS["red"])
+				await echo(message.channel, "Error: Could not lock.", COLORS["red"])
+			return None
 
 		await echo(message.channel, "Unknown command. Use 'help' for all available commands.", COLORS["red"])
 		return None

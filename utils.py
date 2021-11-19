@@ -3,9 +3,9 @@ from colors import COLORS
 
 def hasPermission(user):
     with open('permissions.json') as file:
-        permissions = json.loads(file)
+        permissions = json.loads(file.read())
         for permission in permissions:
-            if permission in [ role.name for role in user.roles ]:
+            if permissions[permission][0] in [ role.name for role in user.roles ]:
                 return True
     return False
 
