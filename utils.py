@@ -1,6 +1,14 @@
 import json
 from colors import COLORS
 
+def hasPermission(user):
+    with open('permissions.json') as file:
+        permissions = json.loads(file)
+        for permission in permissions:
+            if permission in [ role.name for role in user.roles ]:
+                return True
+    return False
+
 # Send text to the terminal (discord channel)
 async def echo(channel, msg, color = COLORS["white"]):
     await channel.send(f"```{color + msg}```")

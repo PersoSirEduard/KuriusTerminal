@@ -5,6 +5,7 @@ from utils import *
 from tree import Tree
 from folder import *
 from file import *
+from vault import encrypt
 from colors import COLORS
 from io import BytesIO
 
@@ -22,6 +23,13 @@ treeDir = Tree()
 async def on_ready():
 	print(f'{client.user} has connected to Discord.')
 	treeDir.load("directory.json") # Load the files and folders
+
+	file = File("KuriusFraud.txt", "/Downloads/Sample")
+	file.write("Super secret data goes here.")
+	folder = Folder("Sample", "/Downloads")
+	folder.addChild(file)
+	vault = encrypt(folder, "123")
+	treeDir.getDirectory("/Downloads").addChild(vault)
 
 @client.event
 async def on_message(message):
@@ -86,7 +94,7 @@ async def handleCommand(message, command):
 				else:
 					await echo(message.channel, f"Found {folder.count} file(s).\n" + treeDir.getTreePath(folder, 1, 0, False, "-f" in args))
 				
-				return [child.getName() for child in folder.children]
+				return folder.children.keys()
 
 			except Exception as e:
 				print(e)
@@ -157,7 +165,64 @@ async def handleCommand(message, command):
 				print(e)
 				await echo(message.channel, "Error: Could not reach the contents of the file.", COLORS["red"])
 			return None
-		
+
+		# Unlock a vault
+		if args[0] == "unlock":
+			try:
+				if (len(args) > 2):
+					file = getFile(treeDir, args[1], True)
+
+					if file != None:
+						unlocked = file.decrypt(args[2])
+						treeDir.getDirectory(file.getParentPath()).children[file.getName()] = unlocked
+						await echo(message.channel, f"Unlocked {file.getName()}.", COLORS["green"])
+						return unlocked
+					else:
+						await echo(message.channel, f"Error: File not found.", COLORS["red"])
+				else:
+					await echo(message.channel, f"Error: No file or password specified.", COLORS["red"])
+			except Exception as e:
+				print(e)
+				await echo(message.channel, "Error: Could not unlock. The password may be invalid.", COLORS["red"])
+			return None
+
+		# Create a vault
+		if args[0] == "lock":
+			try:
+				if (len(args) > 2):
+
+					if not hasPermission(message.author):
+						await echo(message.channel, "Error: You do not have permission to lock files.", COLORS["red"])
+						return None
+					
+					objet = None
+
+					try:
+						object = getFile(treeDir, args[1], True)
+					except:
+						object = None
+					
+					try:
+						object = getDirectory(treeDir, args[1], True)
+					except:
+						object = None
+
+					if object != None:
+						locked = encrypt(object, args[2])
+						treeDir.getDirectory(object.getParentPath()).children[object.getName()] = locked
+						treeDir.setCurrentDir(object.getParentPath())
+
+						await echo(message.channel, f"Locked {locked.getName()}.", COLORS["green"])
+						return locked
+					else:
+						await echo(message.channel, f"Error: Invalid folder or file.", COLORS["red"])
+				else:
+					await echo(message.channel, f"Error: No file/folder or password specified.", COLORS["red"])
+
+			except Exception as e:
+				print(e)
+				await echo(message.channel, "Error: Could not lock. The password may be invalid.", COLORS["red"])
+
 		await echo(message.channel, "Unknown command. Use 'help' for all available commands.", COLORS["red"])
 		return None
 
