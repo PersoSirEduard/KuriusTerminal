@@ -1,0 +1,25 @@
+Recursive Algorithm Homework:
+Consider a recursive algorithm algo().
+algo() takes two parameters a and b, both integers.
+If a and b are equal, algo() should return 2.
+If a and b are coprime, algo() increments a by 1 and returns the value of algo() with the new a and b as parameters.
+In any other cases, algo() returns the value of algo() with two new integers c and d as parameters, and multiply that result by b.
+    The value of the integer c is the gcd of a and b. The value of the integer d is simply the value of the integer a.
+
+Calculate the value returned by algo() with parameters a and b, then divide that result by the integer d.
+    1. a = 244, b = 248, d = 992
+    2. a = 99, b = 198, d = 12
+    3. a = 124, b = 248, d = 8
+    4. a = 168, b = 170, d = 714
+    5. a = 242, b = 248, d = 992
+    6. a = 136, b = 140, d = 560
+    7. a = 162, b = 182, d = 728
+    8. a = 210, b = 224, d = 960
+    9. a = 234, b = 238, d = 884
+    10. a = 102, b = 204, d = 8
+    11. a = 246, b = 249, d = 996
+    12. a = 134, b = 136, d = 544
+    13. a = 240, b = 242, d = 1056
+    14. a = 119, b = 238, d = 14
+    15. a = 148, b = 158, d = 632
+    16. a = 192, b = 195, d = 832
