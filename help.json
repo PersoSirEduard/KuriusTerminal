@@ -3,5 +3,6 @@
     "ls": "Lists the contents of the current directory",
     "cd <directory>": "Changes the current directory",
     "cat <file>": "Previews the contents of the file.",
-    "get <file>": "Downloads the selected file."
+    "get <file>": "Downloads the selected file.",
+    "su <password>": "Allows you to gain superuser privileges"
 }

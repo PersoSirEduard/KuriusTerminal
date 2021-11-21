@@ -30,6 +30,14 @@ async def on_ready():
 	folder.addChild(file)
 	vault = encrypt(folder, "123")
 	treeDir.getDirectory("/Downloads").addChild(vault)
+	file = File("secret.txt", "/SecretFolder")
+	file.write("Information that links to the website goes here.")
+	file = File("vigenere.txt", "/Documents/Code/Work")
+	file.write("LcxpOUskupkieud")
+	file = File("vigenere.txt", "/Documents/Code/Work")
+	file.write("LcxpOUskupkieud")
+	file = File("key.txt", "/Documents/School/Math")
+	file.write("BigHacks")
 
 @client.event
 async def on_message(message):
@@ -114,6 +122,14 @@ async def handleCommand(message, command):
 						treeDir.setCurrentDir(newDir.getFullPath())
 						await echo(message.channel, f"Changed directory to {newDir}.", COLORS["green"])
 						return newDir
+
+						if newDir == SecretFolder and message.author.roles == "Superuser":
+							treeDir.setCurrentDir(newDir.getFullPath())
+							await echo(message.channel, f"Changed directory to {newDir}.", COLORS["green"])
+							return newDir
+						else:
+							await echo(message.channel, f"Error: You do not have superuser privileges.", COLORS["red"])
+
 					else:
 						await echo(message.channel, f"Error: Directory not found.", COLORS["red"])
 						
@@ -166,6 +182,31 @@ async def handleCommand(message, command):
 				await echo(message.channel, "Error: Could not reach the contents of the file.", COLORS["red"])
 			return None
 
+		if args[0] == "su":
+			try:
+				if (len(args) > 1):
+					password = args[1]
+
+					if password != None:
+						contents = password
+
+						if contents == "KuriOSisthebest":
+							await echo(message.channel, "Gained Superuser Role")
+							role = discord.utils.get(message.guild.roles, name="Superuser")
+							await message.author.add_roles(role)
+							return contents
+
+						else:
+							await echo(message.channel, "Incorrect Password.", COLORS["red"])
+					else:
+						await echo(message.channel, f"No password was given by the user.", COLORS["red"])
+
+				else:
+					await echo(message.channel, f"No password was provided by the user.", COLORS["red"])
+			except Exception as e:
+				print(e)
+				await echo(message.channel, "The command didn't work.", COLORS["red"])
+			return None
 		# Unlock a vault
 		if args[0] == "unlock":
 			try:

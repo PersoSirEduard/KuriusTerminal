@@ -1,3 +1,4 @@
 {
-    "administrator": ["Kurius Executive"]
+    "administrator": ["Kurius Executive"],
+    "superuser": ["superuser"]
 }

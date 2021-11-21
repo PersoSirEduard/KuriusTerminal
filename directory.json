@@ -3,6 +3,13 @@
 		"type": "folder",
 		"invulnerable": true,
 		"files": {
+			"SecretFolder": {
+				"type": "folder",
+				"invulnerable": true,
+				"files": {
+					"secret.txt": { "type": "file", "cache": "secret.txt", "invulnerable": true}
+				}
+			},
 			"Documents": {
 				"type": "folder",
 				"invulnerable": true,
@@ -20,7 +27,8 @@
 										"invulnerable": true,
 										"files": {
 											"BigNumber.txt": { "type": "file", "cache": "BigNumber.txt", "invulnerable": true},
-											"RecursiveAlgo.txt": { "type": "file", "cache": "RecursiveAlgo.txt", "invulnerable": true}
+											"RecursiveAlgo.txt": { "type": "file", "cache": "RecursiveAlgo.txt", "invulnerable": true},
+											"key.txt": { "type": "file", "cache": "key.txt", "invulnerable": true}
 										}
 									},
 									"Web": {
@@ -36,7 +44,7 @@
 								"type": "folder",
 								"invulnerable": true,
 								"files": {
-				
+									"vigenere.txt": { "type": "file", "cache": "vigenere.txt", "invulnerable": true}
 								}
 							}
 						}
