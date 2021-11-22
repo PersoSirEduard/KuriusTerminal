@@ -1,4 +1,10 @@
-{
-    "administrator": ["Kurius Executive"],
-    "superuser": ["superuser"]
+{   
+    "commands": {
+        "lock": ["Kurius Executive"],
+        "unlock": ["Kurius Executive", "KuriOS Superuser"]
+    },
+    "users": {
+        "KuriOS Superuser": {"password": "12345"}
+    }
+
 }

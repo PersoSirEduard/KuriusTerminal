@@ -36,7 +36,7 @@ class Vault(File):
 def encrypt(object, password):
 
     # Ignore if object cannot be modified
-    if hasattr(object, 'invulnerable') and object.invulnerable: return None
+    #if hasattr(object, 'invulnerable') and object.invulnerable: return None
 
     # Unload the object
     data = tree._unloadExplore(object)

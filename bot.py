@@ -24,20 +24,20 @@ async def on_ready():
 	print(f'{client.user} has connected to Discord.')
 	treeDir.load("directory.json") # Load the files and folders
 
-	file = File("KuriusFraud.txt", "/Downloads/Sample")
-	file.write("Super secret data goes here.")
-	folder = Folder("Sample", "/Downloads")
-	folder.addChild(file)
-	vault = encrypt(folder, "123")
-	treeDir.getDirectory("/Downloads").addChild(vault)
-	file = File("secret.txt", "/SecretFolder")
-	file.write("Information that links to the website goes here.")
-	file = File("vigenere.txt", "/Documents/Code/Work")
-	file.write("LcxpOUskupkieud")
-	file = File("vigenere.txt", "/Documents/Code/Work")
-	file.write("LcxpOUskupkieud")
-	file = File("key.txt", "/Documents/School/Math")
-	file.write("BigHacks")
+	# file = File("KuriusFraud.txt", "/Downloads/Sample")
+	# file.write("Super secret data goes here.")
+	# folder = Folder("Sample", "/Downloads")
+	# folder.addChild(file)
+	# vault = encrypt(folder, "123")
+	# treeDir.getDirectory("/Downloads/").addChild(vault)
+	# file = File("secret.txt", "/SecretFolder")
+	# file.write("Information that links to the website goes here.")
+	# file = File("vigenere.txt", "/Documents/Code/Work")
+	# file.write("LcxpOUskupkieud")
+	# file = File("vigenere.txt", "/Documents/Code/Work")
+	# file.write("LcxpOUskupkieud")
+	# file = File("key.txt", "/Documents/School/Math")
+	# file.write("BigHacks")
 
 @client.event
 async def on_message(message):
@@ -123,13 +123,6 @@ async def handleCommand(message, command):
 						await echo(message.channel, f"Changed directory to {newDir}.", COLORS["green"])
 						return newDir
 
-						if newDir == SecretFolder and message.author.roles == "Superuser":
-							treeDir.setCurrentDir(newDir.getFullPath())
-							await echo(message.channel, f"Changed directory to {newDir}.", COLORS["green"])
-							return newDir
-						else:
-							await echo(message.channel, f"Error: You do not have superuser privileges.", COLORS["red"])
-
 					else:
 						await echo(message.channel, f"Error: Directory not found.", COLORS["red"])
 						
@@ -182,35 +175,34 @@ async def handleCommand(message, command):
 				await echo(message.channel, "Error: Could not reach the contents of the file.", COLORS["red"])
 			return None
 
+		# Add/Change user permission level
 		if args[0] == "su":
 			try:
-				if (len(args) > 1):
-					password = args[1]
+				if (len(args) > 2):
+					permission = args[1]
+					password = args[2]
 
-					if password != None:
-						contents = password
-
-						if contents == "KuriOSisthebest":
-							await echo(message.channel, "Gained Superuser Role")
-							role = discord.utils.get(message.guild.roles, name="Superuser")
-							await message.author.add_roles(role)
-							return contents
-
-						else:
-							await echo(message.channel, "Incorrect Password.", COLORS["red"])
+					if await gainPermission(message, permission, password):
+						await echo(message.channel, f"Gained {permission} privileges.", COLORS["green"])
 					else:
-						await echo(message.channel, f"No password was given by the user.", COLORS["red"])
+						await echo(message.channel, f"Error: Could not gain permssion. Verify your password.", COLORS["red"])
 
 				else:
-					await echo(message.channel, f"No password was provided by the user.", COLORS["red"])
+					await echo(message.channel, f"Error: Invalid input. A permission name and a password are required.", COLORS["red"])
 			except Exception as e:
 				print(e)
-				await echo(message.channel, "The command didn't work.", COLORS["red"])
+				await echo(message.channel, "Error: Something went wrong.", COLORS["red"])
 			return None
+		
 		# Unlock a vault
 		if args[0] == "unlock":
 			try:
 				if (len(args) > 2):
+
+					if not hasPermission(message.author, "unlock"):
+						await echo(message.channel, f"Error: You do not have permission to unlock.", COLORS["red"])
+						return None
+
 					file = getFile(treeDir, args[1], True)
 
 					if file != None:
@@ -232,7 +224,7 @@ async def handleCommand(message, command):
 			try:
 				if (len(args) > 2):
 
-					if not hasPermission(message.author):
+					if not hasPermission(message.author, "lock"):
 						await echo(message.channel, "Error: You do not have permission to lock files.", COLORS["red"])
 						return None
 					

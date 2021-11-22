@@ -1,7 +1,7 @@
 import json
 from folder import *
 from file import *
-from vault import Vault
+from vault import Vault, encrypt
 from inspect import ismethod
 
 class Tree:
@@ -111,6 +111,22 @@ def _loadExplore(path, rawParent):
             # Get the attributes of the current file/folder
             attribs = { k: v for k, v in body.items() if k != "files"}
 
+            # Check whether the object should turn into a vault
+            toLock = False
+            password = "default"
+
+            if "locked" in attribs and attribs.get("locked"):
+                
+                toLock = True
+                attribs.pop("locked")
+
+                # Get or create password
+                if "password" in attribs:
+                    password = attribs.get("password")
+                    if password.strip() == "": password = "default"
+                    attribs.pop("password")
+                
+
             if body.get("type") == "folder":
                 contents = _loadExplore(path + name + "/", body.get("files"))
                 
@@ -121,10 +137,17 @@ def _loadExplore(path, rawParent):
                 for content in contents:
                     newFolder.addChild(content)
 
+                # Create a vault if necessary
+                if toLock: newFolder = encrypt(newFolder, password)
+
                 localContent.append(newFolder)
 
             elif body.get("type") == "file":
-                localContent.append(File(name, path, attribs))
+                if toLock:
+                    # Create a vault if necessary
+                    localContent.append(encrypt(File(name, path, attribs), password))
+                else:
+                    localContent.append(File(name, path, attribs))
             elif body.get("type") == "vault":
                 localContent.append(Vault(name, path, attribs))
 

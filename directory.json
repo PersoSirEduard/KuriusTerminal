@@ -64,7 +64,9 @@
 			"Downloads": {
 				"type": "folder",
 				"invulnerable": true,
-				"files": {}
+				"files": {
+					"locked.txt": { "type": "file", "data": "This file was originally locked", "invulnerable": true, "locked": true, "password": "kurius"}
+				}
 			}
 		}
 	}
