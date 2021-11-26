@@ -1,0 +1,8 @@
+What Is Steganography?
+Steganography is the practice of hiding a secret message inside of (or even on top of) something that is not secret. That something can be just about anything you want. These days, many examples of steganography involve embedding a secret piece of text inside of a picture. Or hiding a secret message or script inside of a Word or Excel document.
+
+The purpose of steganography is to conceal and deceive. It is a form of covert communication and can involve the use of any medium to hide messages. It’s not a form of cryptography, because it doesn't involve scrambling data or using a key. Instead, it is a form of data hiding and can be executed in clever ways. Where cryptography is a science that largely enables privacy, steganography is a practice that enables secrecy and deceit.
+
+Behind every symbol lies a secret message. These symbols can only be understood and found by using what we cherish and love most.
+
+Source: https://www.comptia.org/blog/what-is-steganography

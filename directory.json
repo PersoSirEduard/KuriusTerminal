@@ -11,7 +11,7 @@
 						"type": "folder",
 						"invulnerable": true,
 						"files": {
-							"School": {
+							"Projects": {
 								"type": "folder",
 								"invulnerable": true,
 								"files": {
@@ -20,13 +20,16 @@
 										"invulnerable": true,
 										"files": {
 											"BigNumber.txt": { "type": "file", "cache": "BigNumber.txt", "invulnerable": true},
-											"RecursiveAlgo.txt": { "type": "file", "cache": "RecursiveAlgo.txt", "invulnerable": true}
+											"RecursiveAlgo.txt": { "type": "file", "cache": "RecursiveAlgo.txt", "invulnerable": true},
+											"Cypher.txt": { "type": "file", "cache": "Cypher.txt", "invulnerable": true},
+											"Imitation.txt": { "type": "file", "cache": "Imitation.txt", "invulnerable": true}
 										}
 									},
 									"Web": {
 										"type": "folder",
 										"invulnerable": true,
 										"files": {
+
 										}
 									}
 								}
@@ -35,8 +38,38 @@
 								"type": "folder",
 								"invulnerable": true,
 								"files": {
+									"kuri_os_feature.exe": { "type": "file", "cache": "kuri_os_feature.txt", "invulnerable": true }
 								}
 							}
+						}
+					},
+					"Agenda": {
+						"type": "folder",
+						"invulnerable": true,
+						"locked": true,
+						"password": "9Ac(-t2uS($#^Sy^",
+						"files": {
+							"2021-05-08": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-05-11": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-05-20": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-05-25": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-05-26": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-06-03": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-06-16": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-06-21": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-07-08": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-07-12": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-07-30": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-08-02": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-08-24": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-08-27": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-09-10": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-09-17": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-09-20": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-10-10": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-10-13": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-10-19": { "type": "file", "cache": "", "invulnerable": true },
+							"2021-11-05": { "type": "file", "cache": "", "invulnerable": true }
 						}
 					}
 				}
@@ -45,8 +78,7 @@
 				"type": "folder",
 				"invulnerable": true,
 				"files": {
-					"dogpic.png": { "type": "file", "cache": "dogpic.png", "invulnerable": true},
-					"catpic.png": { "type": "file", "cache": "catpic.png", "invulnerable": true },
+					"mydog.png": { "type": "file", "cache": "dogpic.png", "invulnerable": true},
 					"logo.jpg": { "type": "file", "cache": "logo.jpg", "invulnerable": true }
 				}
 			},
@@ -54,6 +86,7 @@
 				"type": "folder",
 				"invulnerable": true,
 				"files": {
+					"what_is_steganography.txt": { "type": "file", "cache": "what_is_steganography.txt", "invulnerable": true },
 					"discordpydocs.txt": { "type": "file", "cache": "discordpydocs.txt", "invulnerable": true}
 				}
 			}

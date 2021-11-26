@@ -31,7 +31,12 @@ class File(StorageEntity):
         # Read from cache
         elif hasattr(self, "cache"):
             try:
-                contents = open("cache/" + self.cache, mode).read()
+                contents = ""
+                
+                if mode == "rb":
+                    contents = open("cache/" + self.cache, mode).read()
+                else:
+                    contents = open("cache/" + self.cache, mode, errors="ignore").read()
 
                 # Respect discord's max message length
                 if limit:
