@@ -4,6 +4,6 @@
     "pwd": "Displays the oath to the current working directory.",
     "cd <directory>": "Changes the current directory",
     "cat <file>": "Previews the contents of the file.",
-    "get <file>": "Downloads the selected file.",
+    "grab <file>": "Downloads the selected file.",
     "su <role> <password>": "Allows you to gain user privileges"
 }

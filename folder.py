@@ -1,5 +1,7 @@
 from utils import formatPath
 from storage import StorageEntity
+from utils import hasPermission
+from datetime import datetime
 
 class Folder(StorageEntity):
 
@@ -25,7 +27,7 @@ class Folder(StorageEntity):
         except Exception as e:
             return None
     
-def getDirectory(treeDir, path, relativePath = False):
+def getDirectory(treeDir, path, relativePath = False, user = None):
 
     if relativePath:
         path = formatPath(treeDir, path)
@@ -40,6 +42,14 @@ def getDirectory(treeDir, path, relativePath = False):
 
             if not isinstance(currentDir, Folder):
                 return None
+
+            if hasattr(currentDir, "permission"):
+                if not hasPermission(user, currentDir.permission):
+                    return None
+            
+            if hasattr(currentDir, "availability"):
+                if not datetime.strptime(currentDir.availability[0], "%Y-%m-%d %H:%M:%S") <= treeDir.env.getSystemTime() <= datetime.strptime(currentDir.availability[1], "%Y-%m-%d %H:%M:%S"):
+                    return None
     except:
         return None
     

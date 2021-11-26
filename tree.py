@@ -3,6 +3,7 @@ from folder import *
 from file import *
 from vault import Vault, encrypt
 from inspect import ismethod
+from environment import *
 
 class Tree:
 
@@ -11,6 +12,7 @@ class Tree:
         self.name = "/"
         self.children = {}
         self.count = 0
+        self.env = EnvironmentManager()
 
     def __str__(self):
         return self.currentDir
@@ -45,11 +47,11 @@ class Tree:
     def getFullPath(self):
         return "/"
 
-    def getDirectory(self, path, relativePath = False):
+    def getDirectory(self, path, relativePath = False, user = None):
         if str(path).strip() == "/":
             return self
         else:
-            return getDirectory(self, path, relativePath)
+            return getDirectory(self, path, relativePath, user)
     
     # Function that gets the file/folder name from its path (i.e. the last element of the path) as a string
     def getPathName(self, path):
