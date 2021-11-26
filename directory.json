@@ -29,7 +29,7 @@
 										"type": "folder",
 										"invulnerable": true,
 										"files": {
-
+											"helloworld.html": { "type": "file", "cache": "helloworld.html", "invulnerable": true}
 										}
 									}
 								}
