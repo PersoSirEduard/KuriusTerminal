@@ -1,9 +1,14 @@
 {   
     "help": "Displays this message",
-    "ls": "Lists the contents of the current directory",
+    "neofetch": "Get information on the system.",
+    "echo": "Output some string on the terminal.",
+    "ls [-f]": "Lists the contents of the current directory",
     "pwd": "Displays the oath to the current working directory.",
-    "cd <directory>": "Changes the current directory",
+    "cd <directory>": "Changes the current directory. '.. , . , ~' can be used.",
     "cat <file>": "Previews the contents of the file.",
     "grab <file>": "Downloads the selected file.",
-    "su <role> <password>": "Allows you to gain user privileges"
+    "su <role> <password>": "Allows you to gain user privileges.",
+    "get [-a] <name>": "Get the value of a system variable.",
+    "set <name> <value>": "Set the value of a system variable.",
+    "del <name>": "Delete a system variable."
 }
