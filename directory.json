@@ -126,7 +126,7 @@
 					"My First Folder": {
 						"type": "folder",
 						"invulnerable": true,
-						"availability": ["1984-01-28 01:25:25", "1984-02-10 01:25:25"]
+						"availability": ["1984-01-28 01:25:25", "1984-02-10 01:25:25"],
 						"files": {
 							"therapist session.wav": { "type": "file", "cache": "therapist session.wav", "invulnerable": true }
 						}
@@ -136,7 +136,7 @@
 						"invulnerable": true,
 						"locked": true,
 						"password": "PrivacyIsaUniversalRight",
-						"permission": "kurios_superuser"
+						"permission": "kurios_superuser",
 						"files": {
 							"finaltext": { "type": "file", "cache": "finaltext.txt", "locked": true, "password": "Wq2A8pBz3mhjAtQ4NsNx7td4Lm2hZfYn4fKzTuS98qJrb8YBGz4yjgRv24EA", "invulnerable": true }
 						}
