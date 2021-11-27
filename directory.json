@@ -40,7 +40,7 @@
 											"BigNumber.txt": { "type": "file", "cache": "BigNumber.txt", "invulnerable": true},
 											"RecursiveAlgo.txt": { "type": "file", "cache": "RecursiveAlgo.txt", "invulnerable": true},
 											"Cypher.txt": { "type": "file", "cache": "Cypher.txt", "invulnerable": true},
-											"Imitation.txt": { "type": "file", "cache": "Imitation.txt", "invulnerable": true}
+											"Enigma.txt": { "type": "file", "cache": "Enigma.txt", "invulnerable": true}
 										}
 									},
 									"Web": {
