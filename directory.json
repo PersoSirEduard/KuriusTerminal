@@ -98,8 +98,12 @@
 				"type": "folder",
 				"invulnerable": true,
 				"files": {
-					"mydog.png": { "type": "file", "cache": "dogpic.png", "invulnerable": true},
+					"mydog.png": { "type": "file", "cache": "dogpic.png", "invulnerable": true },
 					"logo.jpg": { "type": "file", "cache": "logo.jpg", "invulnerable": true },
+					"mydog.png": { "type": "file", "cache": "dogpic.png", "invulnerable": true },
+					"bluefred.jpg": { "type": "file", "cache": "bluefred.jpg", "invulnerable": true },
+					"elon.jpg": { "type": "file", "cache": "elon.jpg", "invulnerable": true },
+					"cheatsheet.jpg": { "type": "file", "cache": "cheatsheet.jpg", "invulnerable": true }
 				}
 			},
 			"Downloads": {
@@ -108,11 +112,24 @@
 				"files": {
 					"what_is_steganography.txt": { "type": "file", "cache": "what_is_steganography.txt", "invulnerable": true },
 					"discordpydocs.txt": { "type": "file", "cache": "discordpydocs.txt", "invulnerable": true},
-					"article.txt": { "type": "file", "cache": "article.txt", "invulnerable": true},
 					"RandomChars.txt": { "type": "file", "cache": "RandomChars.txt", "invulnerable": true},
 					"Key.txt": { "type": "file", "cache": "Key.txt", "invulnerable": true},
 					"KuriOSFunctionality.txt": { "type": "file", "cache": "KuriOSFunctionality.txt", "locked": true,"password": "7<8/a<6dwc%@`$NU", "invulnerable": true},
 					"EnigmaMachineConfiguration.txt": { "type": "file", "cache": "EnigmaMachineConfiguration.txt", "invulnerable": true}
+				}
+			},
+			"Archived": {
+				"type": "folder",
+				"invulnerable": true,
+				"files": {
+					"My First Folder": {
+						"type": "folder",
+						"invulnerable": true,
+						"files": {
+							"therapist session.wav": { "type": "file", "cache": "therapist session.wav", "invulnerable": true }
+						}
+					},
+					"article.txt": { "type": "file", "cache": "article.txt", "invulnerable": true }
 				}
 			}
 		}
