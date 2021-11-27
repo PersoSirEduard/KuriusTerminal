@@ -116,7 +116,8 @@
 					"Key.txt": { "type": "file", "cache": "Key.txt", "invulnerable": true},
 					"KuriOSFunctionality.txt": { "type": "file", "cache": "KuriOSFunctionality.txt", "locked": true,"password": "7<8/a<6dwc%@`$NU", "invulnerable": true},
 					"EnigmaMachineConfiguration.txt": { "type": "file", "cache": "EnigmaMachineConfiguration.txt", "invulnerable": true},
-					"IV.txt": { "type": "file", "cache": "IV.txt", "invulnerable": true}
+					"IV.txt": { "type": "file", "cache": "IV.txt", "invulnerable": true},
+					"racingGame.exe": { "type": "file", "cache": "racingGame.exe", "invulnerable": true}
 				}
 			},
 			"Archived": {
