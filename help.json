@@ -8,7 +8,7 @@
     "cat <file>": "Previews the contents of the file.",
     "grab <file>": "Downloads the selected file.",
     "su <role> <password>": "Allows you to gain user privileges.",
-    "get [-a] <name>": "Get the value of a system variable.",
+    "get <name>": "Get the value of a system variable.",
     "set <name> <value>": "Set the value of a system variable.",
     "del <name>": "Delete a system variable."
 }
