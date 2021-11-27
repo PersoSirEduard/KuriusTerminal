@@ -125,6 +125,7 @@
 					"My First Folder": {
 						"type": "folder",
 						"invulnerable": true,
+						"availability": ["1984-01-28 01:25:25", "1984-02-10 01:25:25"]
 						"files": {
 							"therapist session.wav": { "type": "file", "cache": "therapist session.wav", "invulnerable": true }
 						}
