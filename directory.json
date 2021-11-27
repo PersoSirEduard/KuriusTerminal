@@ -7,6 +7,24 @@
 				"type": "folder",
 				"invulnerable": true,
 				"files": {
+					"Secret": {
+						"type": "folder",
+						"invulnerable": true,
+						"files": {
+							"Vigenere.txt": { "type": "file", "cache": "Vigenere.txt", "invulnerable": true},
+							"thoughts.txt": { "type": "file", "cache": "thoughts.txt", "invulnerable": true},
+							"morethoughts.txt": { "type": "file", "cache": "morethoughts.txt", "invulnerable": true},
+							"bookreview.txt": { "type": "file", "cache": "morethoughts.txt", "invulnerable": true}
+						}
+					},
+					"Interesting Findings": {
+						"type": "folder",
+						"invulnerable": true,
+						"files": {
+							"song.txt": { "type": "file", "cache": "song.txt", "invulnerable": true},
+							"calm.txt": { "type": "file", "cache": "calm.txt", "invulnerable": true}
+						}
+					},
 					"Code": {
 						"type": "folder",
 						"invulnerable": true,
@@ -38,7 +56,9 @@
 								"type": "folder",
 								"invulnerable": true,
 								"files": {
-									"kuri_os_feature.exe": { "type": "file", "cache": "kuri_os_feature.txt", "invulnerable": true }
+									"kuri_os_feature.exe": { "type": "file", "cache": "kuri_os_feature.txt", "invulnerable": true },
+									"tool.txt": { "type": "file", "cache": "tool.txt", "invulnerable": true },
+									"todo.txt": { "type": "file", "cache": "todo.txt", "invulnerable": true }
 								}
 							}
 						}
@@ -88,8 +108,9 @@
 				"files": {
 					"what_is_steganography.txt": { "type": "file", "cache": "what_is_steganography.txt", "invulnerable": true },
 					"discordpydocs.txt": { "type": "file", "cache": "discordpydocs.txt", "invulnerable": true},
-					"article.txt": { "type": "file", "cache": "article.txt", "invulnerable": true}
-					"RandomChars.txt": { "type": "file", "cache": "RandomChars.txt", "invulnerable": true}
+					"article.txt": { "type": "file", "cache": "article.txt", "invulnerable": true},
+					"RandomChars.txt": { "type": "file", "cache": "RandomChars.txt", "invulnerable": true},
+					"Key.txt": { "type": "file", "cache": "Key.txt", "invulnerable": true}
 				}
 			}
 		}
