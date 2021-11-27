@@ -136,6 +136,7 @@
 						"invulnerable": true,
 						"locked": true,
 						"password": "PrivacyIsaUniversalRight",
+						"permission": "kurios_superuser"
 						"files": {
 						}
 					},
