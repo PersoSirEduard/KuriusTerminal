@@ -1,0 +1,2 @@
+I added a "KuriOS Superuser" role to KuriOS. I don't want anyone to play around with my files.
+It should keep my data a little a bit more safe.
