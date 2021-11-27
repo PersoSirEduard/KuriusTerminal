@@ -14,7 +14,7 @@
 							"Vigenere.txt": { "type": "file", "cache": "Vigenere.txt", "invulnerable": true},
 							"thoughts.txt": { "type": "file", "cache": "thoughts.txt", "invulnerable": true},
 							"morethoughts.txt": { "type": "file", "cache": "morethoughts.txt", "invulnerable": true},
-							"bookreview.txt": { "type": "file", "cache": "morethoughts.txt", "invulnerable": true}
+							"bookreview.txt": { "type": "file", "cache": "bookreview.txt", "invulnerable": true}
 						}
 					},
 					"Interesting Findings": {
