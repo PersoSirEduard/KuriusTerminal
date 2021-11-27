@@ -1,0 +1,5 @@
+To-Do List:
+1. Figure out all the features that KuriOS has to offer
+2. Study some crypto-related stuff
+3. Bake a blueberry pie
+4. Learn how to use Obsidian
