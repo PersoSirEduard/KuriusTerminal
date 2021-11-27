@@ -5,7 +5,7 @@
         "kurios_superuser": ["KuriOS Superuser"]
     },
     "users": {
-        "KuriOS Superuser": {"password": "12345"}
+        "KuriOS Superuser": {"password": "imincontrol"}
     }
 
 }
