@@ -1,7 +1,7 @@
 {   
     "commands": {
         "lock": ["Kurius Executive"],
-        "unlock": ["Kurius Executive", "KuriOS Superuser"],
+        "unlock": ["Kurius Executive", "KuriOS Superuser", "Kurius Member"],
         "kurios_superuser": ["KuriOS Superuser"]
     },
     "users": {
