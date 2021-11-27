@@ -15,7 +15,7 @@ intents.members = True
 client = discord.Client(intents=intents)
 
 TOKEN = 'OTA4NTYzNTMyNDg2OTUwOTEy.YY3jug.9a8bQyIyqS9dxbCpUi2AO-O9F84'
-focus_channel = 904198381734330378 # Bot testing channel, we'll change it later
+focus_channel = 913947810485927956 # Bot testing channel, we'll change it later
 treeDir = Tree()
 
 @client.event
@@ -185,9 +185,9 @@ async def handleCommand(message, command):
 			try:
 				if (len(args) > 2):
 
-					if not hasPermission(message.author, "unlock"):
-						await echo(message.channel, f"Error: You do not have permission to unlock.", COLORS["red"])
-						return None
+					# if not hasPermission(message.author, "unlock"):
+						# await echo(message.channel, f"Error: You do not have permission to unlock.", COLORS["red"])
+						# return None
 
 					file = getFile(treeDir, args[1], True, user=message.author)
 
