@@ -1,0 +1,15 @@
+Model: 4-rotor
+Left-most (4th) rotor: LEYJVCNIXWPBQMDRTAKZGFUHOS
+Left-most rotor ring setting: P
+Left-most rotor inital value: R
+Left-hand rotor: BDFHJLCPRTXVZNYEIWGAKMUSQO<W
+Left-hand rotor ring setting: I
+Left-hand rotor initial value: V
+Middle rotor: NZJHGRCXMYSWBOUFAIVLPEKQDT<AN
+Middle rotor ring setting: A
+Middle rotor initial value: C
+Right-hand rotor: FKQHTLXOCBJSPDZRAMEWNIUYGV<AN
+Right-hand rotor setting: Y
+Right-hand rotor initial value: B
+Reflector: AE BN CK DQ FU GY HW IJ LO MP RX SZ TV
+Plugboard: CR YP TO
