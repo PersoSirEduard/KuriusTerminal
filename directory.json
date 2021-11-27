@@ -115,7 +115,8 @@
 					"RandomChars.txt": { "type": "file", "cache": "RandomChars.txt", "invulnerable": true},
 					"Key.txt": { "type": "file", "cache": "Key.txt", "invulnerable": true},
 					"KuriOSFunctionality.txt": { "type": "file", "cache": "KuriOSFunctionality.txt", "locked": true,"password": "7<8/a<6dwc%@`$NU", "invulnerable": true},
-					"EnigmaMachineConfiguration.txt": { "type": "file", "cache": "EnigmaMachineConfiguration.txt", "invulnerable": true}
+					"EnigmaMachineConfiguration.txt": { "type": "file", "cache": "EnigmaMachineConfiguration.txt", "invulnerable": true},
+					"IV.txt": { "type": "file", "cache": "IV.txt", "invulnerable": true}
 				}
 			},
 			"Archived": {
@@ -128,6 +129,14 @@
 						"availability": ["1984-01-28 01:25:25", "1984-02-10 01:25:25"]
 						"files": {
 							"therapist session.wav": { "type": "file", "cache": "therapist session.wav", "invulnerable": true }
+						}
+					},
+					"Confidential": {
+						"type": "folder",
+						"invulnerable": true,
+						"locked": true,
+						"password": "PrivacyIsaUniversalRight",
+						"files": {
 						}
 					},
 					"article.txt": { "type": "file", "cache": "article.txt", "invulnerable": true }
