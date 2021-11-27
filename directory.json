@@ -138,6 +138,7 @@
 						"password": "PrivacyIsaUniversalRight",
 						"permission": "kurios_superuser"
 						"files": {
+							"finaltext": { "type": "file", "cache": "finaltext.txt", "locked": true, "password": "Wq2A8pBz3mhjAtQ4NsNx7td4Lm2hZfYn4fKzTuS98qJrb8YBGz4yjgRv24EA", "invulnerable": true }
 						}
 					},
 					"article.txt": { "type": "file", "cache": "article.txt", "invulnerable": true }
