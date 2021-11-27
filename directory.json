@@ -111,7 +111,8 @@
 					"article.txt": { "type": "file", "cache": "article.txt", "invulnerable": true},
 					"RandomChars.txt": { "type": "file", "cache": "RandomChars.txt", "invulnerable": true},
 					"Key.txt": { "type": "file", "cache": "Key.txt", "invulnerable": true},
-					"KuriOSFunctionality.txt": { "type": "file", "cache": "KuriOSFunctionality.txt", "locked": true,"password": "7<8/a<6dwc%@`$NU", "invulnerable": true}
+					"KuriOSFunctionality.txt": { "type": "file", "cache": "KuriOSFunctionality.txt", "locked": true,"password": "7<8/a<6dwc%@`$NU", "invulnerable": true},
+					"EnigmaMachineConfiguration.txt": { "type": "file", "cache": "EnigmaMachineConfiguration.txt", "invulnerable": true}
 				}
 			}
 		}
