@@ -1,3 +1,5 @@
+## This repository is deprecated. Please visit [KuriOS](https://github.com/PersoSirEduard/KuriOS) instead 
+
 # KuriOS Developer Guide
 
 ## Directory
